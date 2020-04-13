@@ -35,31 +35,9 @@ void File::ClearEmptyMatrixValue()
         } while (shift);
     }
 }
-void File::test()
-{
-    int test = 0;
-    CreativeMatrix(10);
-    V_data[2] = "Cos";
-    V_data[8] = "Cos";
-    ClearEmptyMatrixValue();
-    for (auto x : V_data)
-    {
-        std::cout << test++ << "\t" << x << "\n";
-    }
-    V_data.clear();
-    std::cout << "End Test 1\n";
-    test = 0;
-    CreativeMatrix(5);
-    V_data[0] = "#ifndefn File_H";
-    V_data[1] = "#define File_H";
-    V_data[4] = "#endif";
-    ClearEmptyMatrixValue();
-    for (auto x : V_data)
-    {
-        std::cout << test++ << "\t" << x << "\n";
-    }
-    std::cout << "End Test 2\n";
-}
+void File::AddNameClass(std::string name){
+     NameClass = name;
+ }
 File::~File()
 {
 }

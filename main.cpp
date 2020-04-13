@@ -3,6 +3,6 @@
 int main(int a_size, char **a_tab)
 {
     File f;
-    f.test();
+
     return 0;
 }

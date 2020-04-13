@@ -12,8 +12,7 @@ class File
 
 public:
     File();
-    void AddNameClasss(std::string name);
-    void test();
+    void AddNameClass(std::string name);
     ~File();
 };
 #endif
