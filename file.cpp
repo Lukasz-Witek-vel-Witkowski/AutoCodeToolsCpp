@@ -91,6 +91,7 @@ std::string File::HeadingName(){
         }
     }
     value += "_HPP";
+    return value;
 }
 void File::AddNameClass(std::string name)
 {
