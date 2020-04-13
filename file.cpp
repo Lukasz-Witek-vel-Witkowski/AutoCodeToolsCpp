@@ -18,7 +18,6 @@ void File::Clear_empty_matrix_value()
         if (x.empty())
             size_empty++;
     }
-    std::cout << "Start - Size_empty = " << size_empty << "\n";
     if (size_empty > 1)
     {
         do
@@ -29,14 +28,12 @@ void File::Clear_empty_matrix_value()
                 if (V_data[i].empty() && size_empty > 1)
                 {
                     V_data.erase(V_data.begin() + i);
-                    std::cout << "delete " << i << "\n";
                     size_empty--;
                     shift = true;
                 }
             }
         } while (shift);
     }
-    std::cout << "Finish - Size_empty = " << size_empty << "\n";
 }
 void File::test()
 {
