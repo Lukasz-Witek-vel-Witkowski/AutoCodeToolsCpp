@@ -8,6 +8,7 @@ class File
     std::vector<std::string> V_data;
     void creative_matrix(unsigned int value);
     void Clear_empty_matrix_value();
+
 public:
     File();
     void test();
