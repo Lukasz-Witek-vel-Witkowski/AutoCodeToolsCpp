@@ -44,11 +44,13 @@ void File::ClearEmptyMatrixValue()
 }
 void File::CreativeClass(std::string name)
 {
+    std::string data;
     AddNameClass(name);
     CreativeMatrix(4);
-    V_data[0] = CreativeHeading();
-    V_data[1] = CreativeDefinition();
-    V_data[3] = CreativeEndif();
+    data = HeadingName();
+    V_data[0] = CreativeHeading(data);
+    V_data[1] = CreativeDefinition(data);
+    V_data[3] = CreativeEndif(data);
     ClearEmptyMatrixValue();
     save();
 }
@@ -89,17 +91,17 @@ void File::save()
         file_c.close();
     }
 }
-std::string File::CreativeHeading()
+std::string File::CreativeHeading(std::string &data)
 {
-    return "#ifndef " + HeadingName() + "\n";
+    return "#ifndef " + data + "\n";
 }
-std::string File::CreativeDefinition()
+std::string File::CreativeDefinition(std::string &data)
 {
-    return "#define " + HeadingName() + "\n";
+    return "#define " + data + "\n";
 }
-std::string File::CreativeEndif()
+std::string File::CreativeEndif(std::string &data)
 {
-    return "#endif //!" + HeadingName();
+    return "#endif //!" + data + "\n";
 }
 std::string File::HeadingName()
 {
