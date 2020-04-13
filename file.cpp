@@ -35,9 +35,10 @@ void File::ClearEmptyMatrixValue()
         } while (shift);
     }
 }
-void File::AddNameClass(std::string name){
-     NameClass = name;
- }
+void File::AddNameClass(std::string name)
+{
+    NameClass = name;
+}
 File::~File()
 {
 }
