@@ -37,6 +37,7 @@ void File::ClearEmptyMatrixValue()
 }
 void File::AddNameClass(std::string name){
      NameClass = name;
+     std::cout<<NameClass<<"\n";
  }
 File::~File()
 {
