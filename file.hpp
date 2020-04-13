@@ -9,6 +9,7 @@ class File
 {
     std::string NameClass;
     std::vector<std::string> V_data;
+    ModuleClass module;
     void CreativeMatrix(unsigned int value);
     void ClearEmptyMatrixValue();
     std::string CreativeHeading(std::string& data);

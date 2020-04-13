@@ -47,11 +47,15 @@ void File::CreativeClass(std::string name)
 {
     std::string data;
     AddNameClass(name);
-    CreativeMatrix(4);
+    CreativeMatrix(8);
     data = HeadingName();
     AddValue(0, CreativeHeading(data));
     AddValue(1, CreativeDefinition(data));
-    AddValue(3, CreativeEndif(data));
+    AddValue(2, module.StartClass());
+    AddValue(3, module.ConstructorClass());
+    AddValue(4, module.DestructorClass());
+    AddValue(5, module.StopClass());
+    AddValue(7, CreativeEndif(data));
     ClearEmptyMatrixValue();
     save();
 }
@@ -84,7 +88,9 @@ void File::save()
     file_c.open(CreativeNameFile(false));
     if (file_c.good())
     {
-        file_c << "#include \"" << CreativeNameFile(true) << "\"\n";
+        file_c << "#include \"" << CreativeNameFile(true) << "\"\n\n";
+        file_c << module.ConstructorClass(false);
+        file_c << module.DestructorClass(false);
         file_c.close();
     }
 }
@@ -116,6 +122,7 @@ std::string File::HeadingName()
 void File::AddNameClass(std::string name)
 {
     NameClass = name;
+    module.AddNameClas(NameClass);
 }
 File::~File()
 {
