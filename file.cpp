@@ -2,14 +2,14 @@
 File::File()
 {
 }
-void File::creative_matrix(unsigned int value)
+void File::CreativeMatrix(unsigned int value)
 {
     if (value > 0)
     {
         V_data.resize(value);
     }
 }
-void File::Clear_empty_matrix_value()
+void File::ClearEmptyMatrixValue()
 {
     int size_empty = 0;
     bool shift;
@@ -38,10 +38,10 @@ void File::Clear_empty_matrix_value()
 void File::test()
 {
     int test = 0;
-    creative_matrix(10);
+    CreativeMatrix(10);
     V_data[2] = "Cos";
     V_data[8] = "Cos";
-    Clear_empty_matrix_value();
+    ClearEmptyMatrixValue();
     for (auto x : V_data)
     {
         std::cout << test++ << "\t" << x << "\n";
@@ -49,11 +49,11 @@ void File::test()
     V_data.clear();
     std::cout << "End Test 1\n";
     test = 0;
-    creative_matrix(5);
+    CreativeMatrix(5);
     V_data[0] = "#ifndefn File_H";
     V_data[1] = "#define File_H";
     V_data[4] = "#endif";
-    Clear_empty_matrix_value();
+    ClearEmptyMatrixValue();
     for (auto x : V_data)
     {
         std::cout << test++ << "\t" << x << "\n";
