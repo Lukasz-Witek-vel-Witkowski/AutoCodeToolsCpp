@@ -35,10 +35,67 @@ void File::ClearEmptyMatrixValue()
         } while (shift);
     }
 }
-void File::AddNameClass(std::string name){
-     NameClass = name;
-     std::cout<<NameClass<<"\n";
- }
+void File::CreativeClass(std::string name)
+{
+    AddNameClass(name);
+    CreativeMatrix(4);
+    V_data[0] = CreativeHeading();
+    V_data[1] = CreativeDefinition();
+    V_data[3] = CreativeEndif();
+    ClearEmptyMatrixValue();
+    save();
+}
+const char* File::CreativeNameFile(bool b){
+    std::string value;
+    for(auto x: NameClass){
+        if(x>64&&x<91){
+            value = x + 32;
+        }
+    }
+    if(b) value += ".hpp";
+    else value += ".cpp";
+    return value.c_str();
+}
+void File::save(){
+    std::ofstream file_h, file_c;
+    file_h.open(CreativeNameFile(true));
+    if(file_h.good()){
+        for(auto x: V_data){
+            file_h<<x;
+        }
+        file_h.close();
+    }
+    file_c.open(CreativeNameFile(false));
+    if(file_c.good()){
+        file_c<<"#include \""<<CreativeNameFile(true)<<"\"\n";
+        file_c.close();
+    }
+}
+std::string File::CreativeHeading()
+{
+    return "#ifndef "+HeadingName();
+}
+std::string File::CreativeDefinition()
+{
+    return "#define "+HeadingName();
+}
+std::string File::CreativeEndif()
+{
+    return "#endif //!"+HeadingName();
+}
+std::string File::HeadingName(){
+    std::string value;
+    for(auto x:NameClass){
+        if(x>96&&x<123){
+            value = x -32;
+        }
+    }
+    value += "_HPP";
+}
+void File::AddNameClass(std::string name)
+{
+    NameClass = name;
+}
 File::~File()
 {
 }
