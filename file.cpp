@@ -5,9 +5,12 @@ File::File()
 void File::CreativeMatrix(unsigned int value)
 {
     if (value > 0)
-    {
         V_data.resize(value);
-    }
+}
+void File::AddValue(int value, std::string data)
+{
+    if (value >= 0 && value < V_data.size())
+        V_data[value] = data;
 }
 void File::ClearEmptyMatrixValue()
 {
@@ -37,9 +40,7 @@ void File::ClearEmptyMatrixValue()
     for (auto &y : V_data)
     {
         if (y.empty())
-        {
             y = "\n";
-        }
     }
 }
 void File::CreativeClass(std::string name)
@@ -48,9 +49,9 @@ void File::CreativeClass(std::string name)
     AddNameClass(name);
     CreativeMatrix(4);
     data = HeadingName();
-    V_data[0] = CreativeHeading(data);
-    V_data[1] = CreativeDefinition(data);
-    V_data[3] = CreativeEndif(data);
+    AddValue(0, CreativeHeading(data));
+    AddValue(1, CreativeDefinition(data));
+    AddValue(3, CreativeEndif(data));
     ClearEmptyMatrixValue();
     save();
 }
@@ -60,9 +61,7 @@ const char *File::CreativeNameFile(bool b)
     for (auto x : NameClass)
     {
         if (x > 64 && x < 91)
-        {
             value += x + 32;
-        }
         else
             value += x;
     }
@@ -79,9 +78,7 @@ void File::save()
     if (file_h.good())
     {
         for (auto x : V_data)
-        {
             file_h << x;
-        }
         file_h.close();
     }
     file_c.open(CreativeNameFile(false));
@@ -109,9 +106,7 @@ std::string File::HeadingName()
     for (auto x : NameClass)
     {
         if (x > 96 && x < 123)
-        {
             value += x - 32;
-        }
         else
             value += x;
     }

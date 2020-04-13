@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include "moduleclass.hpp"
 class File
 {
     std::string NameClass;
@@ -14,6 +15,7 @@ class File
     std::string CreativeDefinition(std::string& data);
     std::string CreativeEndif(std::string& data);
     std::string HeadingName();
+    void AddValue(int value, std::string data); 
     const char* CreativeNameFile(bool b);
     void AddNameClass(std::string name);
     void save();
