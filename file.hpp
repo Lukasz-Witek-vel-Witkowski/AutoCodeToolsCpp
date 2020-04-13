@@ -2,6 +2,7 @@
 #define FILE_H
 #include <vector>
 #include <string>
+#include <iostream>
 class File
 {
     std::vector<std::string> V_data;
@@ -9,6 +10,7 @@ class File
     void Clear_empty_matrix_value();
 public:
     File();
+    void test();
     ~File();
 };
 #endif

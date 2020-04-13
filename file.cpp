@@ -23,6 +23,23 @@ void File::Clear_empty_matrix_value(){
         }
     }
 }
+void File::test(){
+    creative_matrix(10);
+    V_data[2] = "Cos";
+    V_data[8] = "Cos";
+    Clear_empty_matrix_value();
+    for(auto x: V_data){
+        std::cout<<x<<"\n";
+    }
+    creative_matrix(5);
+    V_data[0]="#ifndefn File_H";
+    V_data[1] = "#define File_H";
+    V_data[3] = "#endif";
+    Clear_empty_matrix_value();
+    for(auto x: V_data){
+        std::cout<<x<<"\n";
+    }
+}
 File::~File(){
 
 }
