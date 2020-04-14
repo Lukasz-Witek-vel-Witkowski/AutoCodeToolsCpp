@@ -7,23 +7,21 @@
 #include "moduleclass.hpp"
 class File
 {
-    std::string NameClass;
     std::vector<std::string> V_data;
+
+protected:
     ModuleClass module;
+    std::string NameClass;
     void CreativeMatrix(unsigned int value);
     void ClearEmptyMatrixValue();
-    std::string CreativeHeading(std::string& data);
-    std::string CreativeDefinition(std::string& data);
-    std::string CreativeEndif(std::string& data);
-    std::string HeadingName();
-    void AddValue(int value, std::string data); 
-    const char* CreativeNameFile(bool b);
+    void AddValue(int value, std::string data);
+    void AddValue(std::string data);
+    std::string CreativeNameFile(bool b = true);
     void AddNameClass(std::string name);
-    void save();
+    void save(std::string name);
 
 public:
     File();
-    void CreativeClass(std::string name);
     ~File();
 };
 #endif
