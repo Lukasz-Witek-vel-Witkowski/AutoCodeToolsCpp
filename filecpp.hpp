@@ -1,9 +1,13 @@
 #ifndef FILECPP_HPP
 #define FILECPP_HPP
-class FileCpp
+#include "file.hpp"
+class FileCpp: public File
 {
-FileCpp();
-~FileCpp();
+public:
+    FileCpp(std::string name);
+    std::string CreativeInclude();
+    void CreativeFile();
+    ~FileCpp();
 }; //End class FileCpp
 
 #endif //!FILECPP_HPP

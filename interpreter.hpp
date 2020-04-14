@@ -1,9 +1,13 @@
 #ifndef INTERPRETER_HPP
 #define INTERPRETER_HPP
-class interpreter
+#include "filehpp.hpp"
+#include "filecpp.hpp"
+class Interpreter
 {
-interpreter();
-~interpreter();
+public:
+    Interpreter();
+    void CreativeClass(std::string name);
+    ~Interpreter();
 }; //End class interpreter
 
 #endif //!INTERPRETER_HPP

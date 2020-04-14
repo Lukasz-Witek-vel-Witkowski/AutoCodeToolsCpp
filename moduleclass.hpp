@@ -6,7 +6,13 @@ class ModuleClass
     std::string Nameclass;
 
 public:
+enum Status{
+    _public,
+    _protected,
+    _private
+};
     ModuleClass();
+    std::string AddStatus(Status s);
     std::string StartClass();
     std::string StopClass();
     void AddNameClas(std::string name);

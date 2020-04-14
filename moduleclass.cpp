@@ -18,14 +18,26 @@ void ModuleClass::AddNameClas(std::string name)
 std::string ModuleClass::ConstructorClass(bool b)
 {
     if (b)
-        return Nameclass + "();\n";
+        return "\t"+Nameclass + "();\n";
     return Nameclass + "::" + Nameclass + "(){\n}//Constructor " + Nameclass + "\n";
 }
 std::string ModuleClass::DestructorClass(bool b)
 {
     if (b)
-        return "~" + Nameclass + "();\n";
+        return "\t~" + Nameclass + "();\n";
     return Nameclass + "::~" + Nameclass + "(){\n}//Destruktor " + Nameclass + "\n";
+}
+std::string ModuleClass::AddStatus(Status s){
+    std::string data;
+    switch (s)
+    {
+    case Status::_public:  return "public:\n";
+    case Status::_protected: return "protected:\n";
+    case Status::_private: return "private:\n";
+    default:
+        break;
+    }
+    return "";
 }
 ModuleClass::~ModuleClass()
 {
