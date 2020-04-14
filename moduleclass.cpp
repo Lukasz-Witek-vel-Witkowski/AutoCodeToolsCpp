@@ -19,13 +19,13 @@ std::string ModuleClass::ConstructorClass(bool b)
 {
     if (b)
         return "\t"+Nameclass + "();\n";
-    return Nameclass + "::" + Nameclass + "(){\n}//Constructor " + Nameclass + "\n";
+    return Nameclass + "::" + Nameclass + "()\n{\n}//Constructor " + Nameclass + "\n";
 }
 std::string ModuleClass::DestructorClass(bool b)
 {
     if (b)
         return "\t~" + Nameclass + "();\n";
-    return Nameclass + "::~" + Nameclass + "(){\n}//Destruktor " + Nameclass + "\n";
+    return Nameclass + "::~" + Nameclass + "()\n{\n}//Destruktor " + Nameclass + "\n";
 }
 std::string ModuleClass::AddStatus(Status s){
     std::string data;
