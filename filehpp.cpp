@@ -1,3 +1,9 @@
+/*
+ * @Author: Lukasz Witek vel Witkowski
+ * @Date:   2020-04-15 19:37:57
+ * @Last Modified by:   Your name
+ * @Last Modified time: 2020-04-15 20:03:48
+ */
 #include "filehpp.hpp"
 
 FileHpp::FileHpp(std::string name):File()

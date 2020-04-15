@@ -1,3 +1,9 @@
+/*
+ * @Author: Lukasz Witek vel Witkowski
+ * @Date:   2020-04-15 19:37:57
+ * @Last Modified by:   Your name
+ * @Last Modified time: 2020-04-15 20:02:43
+ */
 #ifndef FILE_H
 #define FILE_H
 #include <vector>

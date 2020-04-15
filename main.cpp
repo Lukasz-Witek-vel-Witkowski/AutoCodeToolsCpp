@@ -1,3 +1,10 @@
+/*
+ * @Author: Lukasz Witek vel Witkowski
+ * @Date:   2020-04-15 19:37:57
+ * @Last Modified by:   Your name
+ * @Last Modified time: 2020-04-15 19:39:12
+ */
+
 #include <iostream>
 #include "file.hpp"
 #include "interpreter.hpp"
