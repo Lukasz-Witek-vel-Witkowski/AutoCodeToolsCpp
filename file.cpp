@@ -1,20 +1,55 @@
+/*
+ * @Author: Lukasz Witek vel Witkowski
+ * @Date:   2020-04-15 19:37:57
+ * @Last Modified by:   Your name
+ * @Last Modified time: 2020-04-16 03:53:16
+ */
 #include "file.hpp"
 File::File()
 {
 }
+
 void File::CreativeMatrix(unsigned int value)
 {
     if (value > 0)
         V_data.resize(value);
 }
+
+std::string File::TransformPath(std::string path)
+{
+    if (path[path.size() - 1] != '\\' || path[path.size() - 1] != '/')
+    {
+        path += "/";
+    }
+    bool active;
+    do
+    {
+        active = false;
+        if (path.find('\\') != std::string::npos)
+        {
+            active = true;
+            path[path.find('\\')] = '/';
+            if (path.find("//") != std::string::npos)
+            {
+                path.erase(path.begin() + path.find("//"));
+            }
+        }
+
+    } while (active);
+    return path;
+}
+
 void File::AddValue(int value, std::string data)
 {
     if (value >= 0 && value < V_data.size())
         V_data[value] = data;
 }
-void File::AddValue(std::string data){
+
+void File::AddValue(std::string data)
+{
     V_data.push_back(data);
 }
+
 void File::ClearEmptyMatrixValue()
 {
     int size_empty = 0;
@@ -46,6 +81,7 @@ void File::ClearEmptyMatrixValue()
             y = "\n";
     }
 }
+
 std::string File::CreativeNameFile(bool b)
 {
     std::string value;
@@ -62,6 +98,7 @@ std::string File::CreativeNameFile(bool b)
         value += ".cpp";
     return value;
 }
+
 void File::save(std::string name)
 {
     std::ofstream file;
@@ -79,6 +116,7 @@ void File::AddNameClass(std::string name)
     NameClass = name;
     module.AddNameClas(NameClass);
 }
+
 File::~File()
 {
 }
