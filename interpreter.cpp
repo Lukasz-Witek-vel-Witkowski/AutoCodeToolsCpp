@@ -56,9 +56,6 @@ void Interpreter::Analizer(int size, char **tab)
 
                 if (path == true && size >= 3)
                 {
-                    std::string temp = "MD ";
-                    temp += tab[size - 1];
-                    system(temp.c_str());
                     std::cout << "Class: \n";
                     for (int i = 2; i < size - 1; i++)
                     {

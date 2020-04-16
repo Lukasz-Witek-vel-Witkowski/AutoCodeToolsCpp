@@ -39,6 +39,23 @@ std::string File::TransformPath(std::string path)
     return path;
 }
 
+std::string File::RetransformPath(std::string path)
+{
+
+    bool active;
+    do
+    {
+        active = false;
+        if (path.find('/') != std::string::npos)
+        {
+            active = true;
+            path[path.find('/')] = '\\';
+        }
+
+    } while (active);
+    return path;
+}
+
 void File::AddValue(int value, std::string data)
 {
     if (value >= 0 && value < V_data.size())
@@ -99,16 +116,29 @@ std::string File::CreativeNameFile(bool b)
     return value;
 }
 
-void File::save(std::string name)
+void File::save(std::string name, std::string path)
 {
+    bool creative;
+    std::string temp;
     std::ofstream file;
-    file.open(name.c_str());
-    if (file.good())
+    do
     {
-        for (auto x : V_data)
-            file << x;
-        file.close();
-    }
+        creative = false;
+        temp = path +name;
+        file.open(temp.c_str());
+        if (file.good())
+        {
+            for (auto x : V_data)
+                file << x;
+            file.close();
+        }
+        else
+        {
+            temp = "md " + RetransformPath(path);
+            system(temp.c_str());
+            creative = true;
+        }
+    } while (creative);
 }
 
 void File::AddNameClass(std::string name)

@@ -21,7 +21,7 @@ void FileCpp::CreativeFile(std::string path)
 {
     path = TransformPath(path);
     CreativeContent();
-    save(path + CreativeNameFile(false));
+    save(CreativeNameFile(false), path);
 }
 
 void FileCpp::CreativeContent()

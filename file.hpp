@@ -26,10 +26,10 @@ protected:
     void AddValue(std::string data);
     std::string CreativeNameFile(bool b = true);
     void AddNameClass(std::string name);
-    void save(std::string name);
-
-public:
+    void save(std::string name, std::string path="");
     std::string TransformPath(std::string path);
+    std::string RetransformPath(std::string path);
+public:
     File();
     ~File();
 };

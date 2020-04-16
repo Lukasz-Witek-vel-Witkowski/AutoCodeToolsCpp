@@ -36,7 +36,7 @@ void FileHpp::CreativeFile(std::string path)
 {
     path = TransformPath(path);
     CreativeContent();
-    save(path + CreativeNameFile());
+    save(CreativeNameFile(), path);
 }
 
 void FileHpp::CreativeContent()
