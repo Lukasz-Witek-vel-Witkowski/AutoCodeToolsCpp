@@ -35,13 +35,22 @@ void Interpreter::Analizer(int size, char **tab)
             switch (tab[index][1])
             {
             case 'p':
-
-                path = true;
-                active = true;
-
+                if ((std::string)tab[index] == ID_Path)
+                {
+                    path = true;
+                    active = true;
+                }
+            case 'c':
+                if ((std::string)tab[index] == ID_CreativeClass)
+                {
+                    for (int i = 2; i < size; i++)
+                    {
+                        CreativeClass(tab[i]);
+                    }
+                }
                 break;
             case 'h':
-                if ((std::string)tab[index] == NameHelper)
+                if ((std::string)tab[index] == ID_Helper)
                 {
                     std::cout << PritfHelp();
                     return;
@@ -69,13 +78,6 @@ void Interpreter::Analizer(int size, char **tab)
                     }
                     std::cout << "\nis Creative in folder " << tab[size - 1] << "!! \n";
                     return;
-                }
-            }
-            else
-            {
-                for (int i = 1; i < size; i++)
-                {
-                    CreativeClass(tab[i]);
                 }
             }
         }
