@@ -18,8 +18,8 @@ public:
      * [Description]
      * @strng name - name class
      */
-    void CreativeClass(std::string name);
-    void CreativeClassPath(std::string name, std::string path);
+    bool ProcedurNameClass(std::string name);
+    bool CreativeClass(std::string name, std::string path="");
     void Analizer(int size, char **tab);
     std::string PritfHelp();
     ~Interpreter();

@@ -124,7 +124,13 @@ void File::save(std::string name, std::string path)
     do
     {
         creative = false;
-        temp = path +name;
+        if(path.size()>1){
+        temp = path + name;
+        }
+        else
+        {
+            temp = name;
+        }
         file.open(temp.c_str());
         if (file.good())
         {
@@ -134,8 +140,11 @@ void File::save(std::string name, std::string path)
         }
         else
         {
-            temp = "md " + RetransformPath(path);
-            system(temp.c_str());
+            if (path.size() > 1)
+            {
+                temp = "md " + RetransformPath(path);
+                system(temp.c_str());
+            }
             creative = true;
         }
     } while (creative);

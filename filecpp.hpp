@@ -15,8 +15,7 @@ public:
     void CreativeContent();
     FileCpp(std::string name);
     std::string CreativeInclude();
-    void CreativeFile();
-    void CreativeFile(std::string path);
+    void CreativeFile(std::string path="");
     ~FileCpp();
 }; //End class FileCpp
 

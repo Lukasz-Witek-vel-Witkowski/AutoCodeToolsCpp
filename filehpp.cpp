@@ -26,14 +26,10 @@ std::string FileHpp::CreativeEndif(std::string &data)
     return "#endif //!" + data + "\n";
 }
 
-void FileHpp::CreativeFile()
-{
-    CreativeContent();
-    save(CreativeNameFile());
-}
 
 void FileHpp::CreativeFile(std::string path)
 {
+
     path = TransformPath(path);
     CreativeContent();
     save(CreativeNameFile(), path);

@@ -26,9 +26,8 @@ public:
     * # Metohod to creative and save file
     * ANCHOR - Method CreativeFile
     **/
-    void CreativeFile();
-
-    void CreativeFile(std::string path);
+ 
+    void CreativeFile(std::string path="");
 
     /**
 	* [Description]

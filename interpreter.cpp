@@ -12,14 +12,14 @@ Interpreter::Interpreter()
     //   active = false;
 } //Constructor interpreter
 
-void Interpreter::CreativeClass(std::string name)
+/*void Interpreter::CreativeClass(std::string name)
 {
     FileCpp fcpp(name);
     FileHpp fhpp(name);
     fhpp.CreativeFile();
     fcpp.CreativeFile();
     std::cout << "Class " + name + " is Creative! \n";
-}
+}*/
 
 void Interpreter::Analizer(int size, char **tab)
 {
@@ -45,6 +45,7 @@ void Interpreter::Analizer(int size, char **tab)
                 {
                     for (int i = 2; i < size; i++)
                     {
+                        std::cout << "Class " + (std::string)tab[i] + " is Creative! \n";
                         CreativeClass(tab[i]);
                     }
                 }
@@ -69,12 +70,15 @@ void Interpreter::Analizer(int size, char **tab)
                     std::cout << "Class: \n";
                     for (int i = 2; i < size - 1; i++)
                     {
-                        std::cout << tab[i];
-                        if (i < size - 2)
+
+                        if (CreativeClass(tab[i], tab[size - 1]))
                         {
-                            std::cout << ",\n";
+                            std::cout << tab[i];
+                            if (i < size - 2)
+                            {
+                                std::cout << ",\n";
+                            }
                         }
-                        CreativeClassPath(tab[i], tab[size - 1]);
                     }
                     std::cout << "\nis Creative in folder " << tab[size - 1] << "!! \n";
                     return;
@@ -84,12 +88,33 @@ void Interpreter::Analizer(int size, char **tab)
     }
 }
 
-void Interpreter::CreativeClassPath(std::string name, std::string path)
+bool Interpreter::ProcedurNameClass(std::string name)
 {
-    FileCpp fcpp(name);
-    FileHpp fhpp(name);
-    fhpp.CreativeFile(path);
-    fcpp.CreativeFile(path);
+
+    if ((name[0] >= 'a' && name[0] <= 'z') ||
+        (name[0] >= 'A' && name[0] <= 'Z') ||
+        (name[0] == '_'))
+    {
+        return true;
+    }
+    return false;
+}
+
+bool Interpreter::CreativeClass(std::string name, std::string path)
+{
+    if (ProcedurNameClass(name))
+    {
+        FileCpp fcpp(name);
+        FileHpp fhpp(name);
+        fhpp.CreativeFile(path);
+        fcpp.CreativeFile(path);
+        return true;
+    }
+    else
+    {
+        std::cout << "The class name: " + name + " is not valid\n";
+        return false;
+    }
 }
 
 std::string Interpreter::PritfHelp()
@@ -98,11 +123,11 @@ std::string Interpreter::PritfHelp()
     descriptionHelper = "\nusage ";
     descriptionHelper += NameProgram;
     descriptionHelper += ": \n\nCommand list:\n";
+    descriptionHelper += " -c\tCreates a class in the current folder.\n";
+    descriptionHelper += "\t<-c> [Class Name 1], [Class Name 2], (...), [Class Name n]\n";
     descriptionHelper += " -help\tProvides information about commands in the program.\n";
     descriptionHelper += " -pc\tCreates classes at the address given at the end of the command string.\n";
     descriptionHelper += "\t<-p> [Class Name 1], [Class Name 2], (...), [Class Name n], [File Path]\n";
-    descriptionHelper += " -c\tCreates a class in the current folder.\n";
-    descriptionHelper += "\t<-c> [Class Name 1], [Class Name 2], (...), [Class Name n]";
     return descriptionHelper;
 }
 
