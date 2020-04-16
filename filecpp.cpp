@@ -2,25 +2,41 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-15 20:04:12
+ * @Last Modified time: 2020-04-16 03:41:43
  */
 #include "filecpp.hpp"
 
-FileCpp::FileCpp(std::string name): File()
+FileCpp::FileCpp(std::string name) : File()
 {
     AddNameClass(name);
 } //Constructor FileCpp
+
 void FileCpp::CreativeFile()
+{
+    CreativeContent();
+    save(CreativeNameFile(false));
+}
+
+void FileCpp::CreativeFile(std::string path)
+{
+    path = TransformPath(path);
+    CreativeContent();
+    save(path + CreativeNameFile(false));
+}
+
+void FileCpp::CreativeContent()
 {
     AddValue(CreativeInclude());
     AddValue("\n");
     AddValue(module.ConstructorClass(false));
     AddValue(module.DestructorClass(false));
-    save(CreativeNameFile(false));
 }
-std::string FileCpp::CreativeInclude(){
-    return "#include \""+CreativeNameFile()+"\"\n";
+
+std::string FileCpp::CreativeInclude()
+{
+    return "#include \"" + CreativeNameFile() + "\"\n";
 }
+
 FileCpp::~FileCpp()
 {
 } //Destruktor FileCpp
