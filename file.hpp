@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-16 02:26:46
+ * @Last Modified time: 2020-04-16 04:11:42
  */
 #ifndef FILE_H
 #define FILE_H
@@ -19,7 +19,7 @@ class File
 protected:
     ModuleClass module;
     std::string NameClass;
-    
+
     void CreativeMatrix(unsigned int value);
     void ClearEmptyMatrixValue();
     void AddValue(int value, std::string data);
@@ -29,7 +29,7 @@ protected:
     void save(std::string name);
 
 public:
-std::string TransformPath(std::string path);
+    std::string TransformPath(std::string path);
     File();
     ~File();
 };

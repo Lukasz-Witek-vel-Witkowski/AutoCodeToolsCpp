@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-16 01:01:54
+ * @Last Modified time: 2020-04-16 04:11:50
  */
 #ifndef MODULECLASS_HPP
 #define MODULECLASS_HPP
@@ -13,11 +13,12 @@ class ModuleClass
     std::string Nameclass;
 
 public:
-enum Status{
-    _public,
-    _protected,
-    _private
-};
+    enum Status
+    {
+        _public,
+        _protected,
+        _private
+    };
     ModuleClass();
     std::string AddStatus(Status s);
     std::string StartClass();

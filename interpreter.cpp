@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-16 04:04:33
+ * @Last Modified time: 2020-04-16 04:10:16
  */
 #include "interpreter.hpp"
 
@@ -59,16 +59,17 @@ void Interpreter::Analizer(int size, char **tab)
                     std::string temp = "MD ";
                     temp += tab[size - 1];
                     system(temp.c_str());
-                     std::cout << "Class: \n";
+                    std::cout << "Class: \n";
                     for (int i = 2; i < size - 1; i++)
                     {
-                        std::cout <<  tab[i] ;
-                        if(i<size-2){
-                            std::cout<<",\n";
+                        std::cout << tab[i];
+                        if (i < size - 2)
+                        {
+                            std::cout << ",\n";
                         }
                         CreativeClassPath(tab[i], tab[size - 1]);
                     }
-                    std::cout<<"\nis Creative in folder " << tab[size - 1] << "!! \n";
+                    std::cout << "\nis Creative in folder " << tab[size - 1] << "!! \n";
                     return;
                 }
             }

@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-16 02:46:45
+ * @Last Modified time: 2020-04-16 04:11:35
  */
 #ifndef FILEHPP_HPP
 #define FILEHPP_HPP
@@ -11,6 +11,7 @@
 class FileHpp : public File
 {
     void CreativeContent();
+
 public:
     /**
 	* [Description]
