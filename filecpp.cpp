@@ -11,12 +11,6 @@ FileCpp::FileCpp(std::string name) : File()
     AddNameClass(name);
 } //Constructor FileCpp
 
-void FileCpp::CreativeFile()
-{
-    CreativeContent();
-    save(CreativeNameFile(false));
-}
-
 void FileCpp::CreativeFile(std::string path)
 {
     path = TransformPath(path);

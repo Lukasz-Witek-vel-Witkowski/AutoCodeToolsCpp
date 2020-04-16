@@ -67,6 +67,31 @@ void File::AddValue(std::string data)
     V_data.push_back(data);
 }
 
+void File::load(std::string name, std::string path)
+{
+    std::ifstream file;
+    std::string temp;
+    if (path.size() > 1)
+        temp = path + name;
+    else
+    {
+        temp = name;
+    }
+    file.open(temp.c_str());
+    if(file.good())
+    {
+        while (!file.eof())
+        {
+            std::getline(file, temp);
+            AddValue(temp);
+        }
+        file.close();
+    }
+    else{
+        std::cout << "File is undefined\n";
+    }
+}
+
 void File::ClearEmptyMatrixValue()
 {
     int size_empty = 0;
@@ -124,7 +149,14 @@ void File::save(std::string name, std::string path)
     do
     {
         creative = false;
-        temp = path +name;
+        if (path.size() > 1)
+        {
+            temp = path + name;
+        }
+        else
+        {
+            temp = name;
+        }
         file.open(temp.c_str());
         if (file.good())
         {
@@ -134,8 +166,11 @@ void File::save(std::string name, std::string path)
         }
         else
         {
-            temp = "md " + RetransformPath(path);
-            system(temp.c_str());
+            if (path.size() > 1)
+            {
+                temp = "md " + RetransformPath(path);
+                system(temp.c_str());
+            }
             creative = true;
         }
     } while (creative);

@@ -20,7 +20,7 @@ int main(int a_size, char **a_tab)
         inter.Analizer(a_size, a_tab);
     }
     else if (a_size == 1)
-        std::cout << "Program AddClass, Jesli chcesz uzyskac pomoc wpisz komende -help\n";
+        std::cout << "\nAddClass program. If you want help, enter the -help command\n";
 
     return 0;
 }
