@@ -8,18 +8,7 @@
 
 Interpreter::Interpreter()
 {
-    //  path = false;
-    //   active = false;
 } //Constructor interpreter
-
-/*void Interpreter::CreativeClass(std::string name)
-{
-    FileCpp fcpp(name);
-    FileHpp fhpp(name);
-    fhpp.CreativeFile();
-    fcpp.CreativeFile();
-    std::cout << "Class " + name + " is Creative! \n";
-}*/
 
 void Interpreter::Analizer(int size, char **tab)
 {
@@ -34,12 +23,6 @@ void Interpreter::Analizer(int size, char **tab)
 
             switch (tab[index][1])
             {
-            case 'p':
-                if ((std::string)tab[index] == ID_Path)
-                {
-                    path = true;
-                    active = true;
-                }
             case 'c':
                 if ((std::string)tab[index] == ID_CreativeClass)
                 {
@@ -57,6 +40,22 @@ void Interpreter::Analizer(int size, char **tab)
                     return;
                 }
                 break;
+            case 'p':
+                if ((std::string)tab[index] == ID_Path)
+                {
+                    path = true;
+                    active = true;
+                }
+            case 'r':
+                if ((std::string)tab[index] == ID_Get)
+                {
+                }
+                if ((std::string)tab[index] == ID_Set)
+                {
+                }
+                if ((std::string)tab[index] == ID_SetGet)
+                {
+                }
             }
         }
         else
