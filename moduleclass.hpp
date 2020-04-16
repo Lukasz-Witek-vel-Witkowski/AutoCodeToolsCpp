@@ -7,6 +7,7 @@
 #ifndef MODULECLASS_HPP
 #define MODULECLASS_HPP
 #include <string>
+#include "definition.h"
 // ANCHOR - Class ModuleClass
 class ModuleClass
 {

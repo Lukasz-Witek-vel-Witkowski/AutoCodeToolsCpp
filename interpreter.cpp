@@ -41,9 +41,10 @@ void Interpreter::Analizer(int size, char **tab)
 
                 break;
             case 'h':
-                if (tab[index] == "-help")
+                if ((std::string)tab[index] == NameHelper)
                 {
                     std::cout << PritfHelp();
+                    return;
                 }
                 break;
             }
@@ -91,7 +92,15 @@ void Interpreter::CreativeClassPath(std::string name, std::string path)
 
 std::string Interpreter::PritfHelp()
 {
-    return "help";
+    std::string descriptionHelper;
+    descriptionHelper = "\nusage ";
+    descriptionHelper += NameProgram;
+    descriptionHelper += ": \n\nCommand list:\n";
+    descriptionHelper += " -help\tProvides information about commands in the program.\n";
+    descriptionHelper += " -p\tCreates classes at the address given at the end of the command string.\n";
+    descriptionHelper += "\t<-p> [Class Name 1], [Class Name 2], (...), [Class Name n], [File Path]\n";
+    descriptionHelper += " \"Name Class\"\tCreates a class in the current folder.\n";
+    return descriptionHelper;
 }
 
 Interpreter::~Interpreter()
