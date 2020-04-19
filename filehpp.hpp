@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-16 04:11:35
+ * @Last Modified time: 2020-04-19 21:07:13
  */
 #ifndef FILEHPP_HPP
 #define FILEHPP_HPP
@@ -10,7 +10,7 @@
 // ANCHOR - Class FileHpp
 class FileHpp : public File
 {
-    void CreativeContent();
+    void CreativeContent(bool Temp);
 
 public:
     /**
@@ -27,7 +27,7 @@ public:
     * ANCHOR - Method CreativeFile
     **/
  
-    void CreativeFile(std::string path="");
+    void CreativeFile(std::string path="", bool Template = false);
 
     /**
 	* [Description]

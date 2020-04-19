@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-16 04:11:50
+ * @Last Modified time: 2020-04-19 21:20:40
  */
 #ifndef MODULECLASS_HPP
 #define MODULECLASS_HPP
@@ -14,19 +14,25 @@ class ModuleClass
     std::string Nameclass;
 
 public:
-    enum Status
+    enum class Status
     {
         _public,
         _protected,
         _private
     };
+    enum class TypeConstruction{
+        _hpp,
+        _cpp,
+        _template
+    };
     ModuleClass();
+    std::string AddTemplate();
     std::string AddStatus(Status s);
     std::string StartClass();
     std::string StopClass();
     void AddNameClas(std::string name);
-    std::string ConstructorClass(bool b = true);
-    std::string DestructorClass(bool b = true);
+    std::string ConstructorClass(TypeConstruction b = TypeConstruction::_hpp);
+    std::string DestructorClass(TypeConstruction b = TypeConstruction::_hpp);
     ~ModuleClass();
 };
 #endif //!MODULECLASS_HPP

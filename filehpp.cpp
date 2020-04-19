@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-16 03:40:28
+ * @Last Modified time: 2020-04-19 21:34:19
  */
 #include "filehpp.hpp"
 
@@ -26,24 +26,33 @@ std::string FileHpp::CreativeEndif(std::string &data)
     return "#endif //!" + data + "\n";
 }
 
-
-void FileHpp::CreativeFile(std::string path)
+void FileHpp::CreativeFile(std::string path, bool Template)
 {
 
     path = TransformPath(path);
-    CreativeContent();
+    CreativeContent(Template);
     save(CreativeNameFile(), path);
 }
 
-void FileHpp::CreativeContent()
+void FileHpp::CreativeContent(bool Temp)
 {
     std::string data = HeadingName();
     AddValue(CreativeHeading(data));
     AddValue(CreativeDefinition(data));
+    if (Temp)
+        AddValue(module.AddTemplate());
     AddValue(module.StartClass());
     AddValue(module.AddStatus(ModuleClass::Status::_public));
-    AddValue(module.ConstructorClass());
-    AddValue(module.DestructorClass());
+    if (Temp)
+    {
+        AddValue(module.ConstructorClass(ModuleClass::TypeConstruction::_template));
+        AddValue(module.DestructorClass(ModuleClass::TypeConstruction::_template));
+    }
+    else
+    {
+        AddValue(module.ConstructorClass());
+        AddValue(module.DestructorClass());
+    }
     AddValue(module.StopClass());
     AddValue(CreativeEndif(data));
 }

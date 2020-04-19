@@ -2,13 +2,13 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-16 00:59:54
+ * @Last Modified time: 2020-04-19 21:38:05
  */
 #include "moduleclass.hpp"
 
 ModuleClass::ModuleClass()
 {
-}
+} 
 
 std::string ModuleClass::StartClass()
 {
@@ -17,7 +17,7 @@ std::string ModuleClass::StartClass()
 
 std::string ModuleClass::StopClass()
 {
-    return "}; //End class " + Nameclass + "\n";
+    return "};\t\t//End class " + Nameclass + "\n";
 }
 
 void ModuleClass::AddNameClas(std::string name)
@@ -25,18 +25,37 @@ void ModuleClass::AddNameClas(std::string name)
     Nameclass = name;
 }
 
-std::string ModuleClass::ConstructorClass(bool b)
+std::string ModuleClass::ConstructorClass(TypeConstruction b)
 {
-    if (b)
+    switch (b)
+    {
+    case TypeConstruction::_cpp:
+        return Nameclass + "::" + Nameclass + "()\n{\n}\t//Constructor " + Nameclass + "\n";
+    case TypeConstruction::_hpp:
         return "\t" + Nameclass + "();\n";
-    return Nameclass + "::" + Nameclass + "()\n{\n}//Constructor " + Nameclass + "\n";
+    case TypeConstruction::_template:
+        return "\t" + Nameclass + "()\n\t{\n\t}\t//Constructor\n";
+    }
+    return "";
 }
 
-std::string ModuleClass::DestructorClass(bool b)
+std::string ModuleClass::DestructorClass(TypeConstruction b)
 {
-    if (b)
+    switch (b)
+    {
+    case TypeConstruction::_cpp:
+        return Nameclass + "::~" + Nameclass + "()\n{\n}\t//Destruktor " + Nameclass + "\n";
+    case TypeConstruction::_hpp:
         return "\t~" + Nameclass + "();\n";
-    return Nameclass + "::~" + Nameclass + "()\n{\n}//Destruktor " + Nameclass + "\n";
+    case TypeConstruction::_template:
+        return "\t~" + Nameclass + "()\n\t{\n\t}\t//Destruktor\n";
+    }
+    return "";
+}
+
+std::string ModuleClass::AddTemplate()
+{
+    return "template <class T>\n";
 }
 
 std::string ModuleClass::AddStatus(Status s)

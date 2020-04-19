@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-16 03:41:43
+ * @Last Modified time: 2020-04-19 21:24:53
  */
 #include "filecpp.hpp"
 
@@ -22,8 +22,8 @@ void FileCpp::CreativeContent()
 {
     AddValue(CreativeInclude());
     AddValue("\n");
-    AddValue(module.ConstructorClass(false));
-    AddValue(module.DestructorClass(false));
+    AddValue(module.ConstructorClass(ModuleClass::TypeConstruction::_cpp));
+    AddValue(module.DestructorClass(ModuleClass::TypeConstruction::_cpp));
 }
 
 std::string FileCpp::CreativeInclude()
