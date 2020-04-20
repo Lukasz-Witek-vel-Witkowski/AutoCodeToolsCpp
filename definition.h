@@ -12,4 +12,5 @@
 #define ID_CreativeClassTemplate "-ct"
 #define nameMain "main"
 #define iostream "<iostream>"
+#define Version "V 0.1"
 #endif //! DEFINITION_H
