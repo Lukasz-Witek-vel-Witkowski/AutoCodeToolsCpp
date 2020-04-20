@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-16 03:53:16
+ * @Last Modified time: 2020-04-20 19:22:57
  */
 #include "file.hpp"
 File::File()
@@ -78,7 +78,7 @@ void File::load(std::string name, std::string path)
         temp = name;
     }
     file.open(temp.c_str());
-    if(file.good())
+    if (file.good())
     {
         while (!file.eof())
         {
@@ -87,7 +87,8 @@ void File::load(std::string name, std::string path)
         }
         file.close();
     }
-    else{
+    else
+    {
         std::cout << "File is undefined\n";
     }
 }

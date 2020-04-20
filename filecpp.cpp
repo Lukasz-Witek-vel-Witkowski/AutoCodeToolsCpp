@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-19 21:24:53
+ * @Last Modified time: 2020-04-20 19:08:57
  */
 #include "filecpp.hpp"
 
@@ -26,9 +26,25 @@ void FileCpp::CreativeContent()
     AddValue(module.DestructorClass(ModuleClass::TypeConstruction::_cpp));
 }
 
-std::string FileCpp::CreativeInclude()
+void FileCpp::CreativeMain(std::string path)
 {
-    return "#include \"" + CreativeNameFile() + "\"\n";
+    path = TransformPath(path);
+    AddValue(CreativeInclude(TypeInclude::_inIostream));
+    AddValue("\n");
+    AddValue(module.getFunctionMain());
+    save(CreativeNameFile(false), path);
+}
+
+std::string FileCpp::CreativeInclude(TypeInclude type)
+{
+    switch (type)
+    {
+    case TypeInclude::_inClass:
+        return "#include \"" + CreativeNameFile() + "\"\n";
+    case TypeInclude::_inIostream:
+        return "#include  "+ (std::string)iostream + "\n";
+    }
+    return "";
 }
 
 FileCpp::~FileCpp()

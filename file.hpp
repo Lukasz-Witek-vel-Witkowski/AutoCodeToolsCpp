@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-16 04:11:42
+ * @Last Modified time: 2020-04-20 18:11:07
  */
 #ifndef FILE_H
 #define FILE_H
@@ -32,6 +32,11 @@ protected:
     std::string RetransformPath(std::string path);
 
 public:
+    enum class TypeInclude
+    {
+        _inClass,
+        _inIostream,
+    };
     File();
     ~File();
 };

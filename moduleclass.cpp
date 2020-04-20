@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-19 21:38:05
+ * @Last Modified time: 2020-04-20 19:10:39
  */
 #include "moduleclass.hpp"
 
@@ -73,6 +73,10 @@ std::string ModuleClass::AddStatus(Status s)
         break;
     }
     return "";
+}
+
+std::string ModuleClass::getFunctionMain(){
+    return "int main()\n{\n\tstd::cout << \"Hello World\" << std::endl;\n\treturn 0;\n}\n";
 }
 
 ModuleClass::~ModuleClass()

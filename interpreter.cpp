@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-19 21:40:19
+ * @Last Modified time: 2020-04-20 19:36:29
  */
 #include "interpreter.hpp"
 
@@ -51,6 +51,15 @@ void Interpreter::Analizer(int size, char **tab)
                     return;
                 }
                 break;
+            case 'm':
+                if (ValueStrIndex == ID_Main)
+                {
+                    if (size > 2)
+                        CreativeMain(tab[2]);
+                    else
+                        CreativeMain();
+                    return;
+                }
             case 'p':
                 if (ValueStrIndex == ID_Path)
                 {
@@ -171,17 +180,25 @@ std::string Interpreter::PritfHelp()
     std::string descriptionHelper;
     descriptionHelper = "\nusage ";
     descriptionHelper += NameProgram;
-    descriptionHelper += ": \n\nCommand list:\n";
+    descriptionHelper += ": \n\nCommand list:\n\n";
     descriptionHelper += " -c\tCreates a class in the current folder.\n";
-    descriptionHelper += "\t<-c> [Class Name 1], [Class Name 2], (...), [Class Name n]\n";
+    descriptionHelper += "\t<-c> [Class Name 1], [Class Name 2], (...), [Class Name n]\n\n";
     descriptionHelper += " -ct\tCreates a class template in the current folder.\n";
-    descriptionHelper += "\t<-ct> [Class Name 1], [Class Name 2], (...), [Class Name n]\n";
-    descriptionHelper += " -help\tProvides information about commands in the program.\n";
+    descriptionHelper += "\t<-ct> [Class Name 1], [Class Name 2], (...), [Class Name n]\n\n";
+    descriptionHelper += " -help\tProvides information about commands in the program.\n\n";
+    descriptionHelper += " -m\tCreates file main.cpp with int main() function.\n";
+    descriptionHelper += "\t<-m> [File Path]\n\n";
     descriptionHelper += " -pc\tCreates classes at the address given at the end of the command string.\n";
-    descriptionHelper += "\t<-pc> [Class Name 1], [Class Name 2], (...), [Class Name n], [File Path]\n";
+    descriptionHelper += "\t<-pc> [Class Name 1], [Class Name 2], (...), [Class Name n], [File Path]\n\n";
     descriptionHelper += " -pct\tCreates classes template at the address given at the end of the command string.\n";
-    descriptionHelper += "\t<-pct> [Class Name 1], [Class Name 2], (...), [Class Name n], [File Path]\n";
+    descriptionHelper += "\t<-pct> [Class Name 1], [Class Name 2], (...), [Class Name n], [File Path]\n\n";
     return descriptionHelper;
+}
+
+void Interpreter::CreativeMain(std::string path)
+{
+    FileCpp file(nameMain);
+    file.CreativeMain(path);
 }
 
 Interpreter::~Interpreter()

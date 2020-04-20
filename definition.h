@@ -10,4 +10,6 @@
 #define ID_SetGet "-rsg"
 #define ID_Main "-m"
 #define ID_CreativeClassTemplate "-ct"
+#define nameMain "main"
+#define iostream "<iostream>"
 #endif //! DEFINITION_H
