@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-20 19:36:29
+ * @Last Modified time: 2020-04-20 19:56:08
  */
 #include "interpreter.hpp"
 
@@ -60,6 +60,7 @@ void Interpreter::Analizer(int size, char **tab)
                         CreativeMain();
                     return;
                 }
+                break;
             case 'p':
                 if (ValueStrIndex == ID_Path)
                 {
@@ -71,6 +72,7 @@ void Interpreter::Analizer(int size, char **tab)
                     _template = true;
                     active = true;
                 }
+                break;
             case 'r':
                 if (ValueStrIndex == ID_Get)
                 {
@@ -81,6 +83,9 @@ void Interpreter::Analizer(int size, char **tab)
                 else if (ValueStrIndex == ID_SetGet)
                 {
                 }
+                break;
+            case 'v':
+                std::cout << Version << "\n";
             }
         }
         else
@@ -192,6 +197,7 @@ std::string Interpreter::PritfHelp()
     descriptionHelper += "\t<-pc> [Class Name 1], [Class Name 2], (...), [Class Name n], [File Path]\n\n";
     descriptionHelper += " -pct\tCreates classes template at the address given at the end of the command string.\n";
     descriptionHelper += "\t<-pct> [Class Name 1], [Class Name 2], (...), [Class Name n], [File Path]\n\n";
+    descriptionHelper += " -v\tDisplays information about the application version\n";
     return descriptionHelper;
 }
 
