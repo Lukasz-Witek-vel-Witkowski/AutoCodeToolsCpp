@@ -1,0 +1,2 @@
+@echo off
+git add definition.h file.cpp file.hpp filecpp.cpp filecpp.hpp filehpp.cpp filehpp.hpp gcc.bat interpreter.cpp interpreter.hpp iteam.cpp iteam.hpp iteammethod.cpp iteammethod.hpp iteamvalue.cpp iteamvalue.hpp main.cpp moduleclass.cpp moduleclass.hpp prototypeclass.cpp prototypeclass.hpp scannerclass.cpp scannerclass.hpp
