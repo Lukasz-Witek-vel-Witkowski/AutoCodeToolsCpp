@@ -13,4 +13,11 @@
 #define nameMain "main"
 #define iostream "<iostream>"
 #define Version "V 0.1"
+#define T_int "int"
+#define T_float "float"
+#define T_double "double"
+#define T_char "char"
+#define T_bool "bool"
+#define T_void "void"
+#define T_un "undefinded"
 #endif //! DEFINITION_H
