@@ -2,7 +2,7 @@
  * @Author: Lukasz Witek vel Witkowski
  * @Date:   2020-04-15 19:37:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-20 18:21:29
+ * @Last Modified time: 2020-04-23 15:57:33
  */
 #ifndef MODULECLASS_HPP
 #define MODULECLASS_HPP

@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2020-04-22 18:00:49
  * @Last Modified by:   Your name
- * @Last Modified time: 2020-04-22 19:44:43
+ * @Last Modified time: 2020-04-23 16:12:43
  */
 #include "iteammethod.hpp"
 
@@ -34,6 +34,9 @@ bool IteamMethod::operator==(IteamMethod &m)
         return true;
     }
     return false;
+}
+bool operator<(const IteamMethod& t,const IteamMethod& m){
+    return (t.Name<m.Name);
 }
 IteamMethod::~IteamMethod()
 {

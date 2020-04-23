@@ -9,6 +9,7 @@ class IteamMethod: public Iteam
 public:
 	IteamMethod();
 	bool operator==(IteamMethod& m);
+	friend bool operator<(const IteamMethod& t,const IteamMethod& m);
 	void init(std::string name, std::vector<IteamValue>* V , bool vir, Iteam::TypeData data);
 	~IteamMethod();
 };		//End class IteamMethod
